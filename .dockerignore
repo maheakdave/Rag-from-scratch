@@ -1,0 +1,10 @@
+.venv
+.gitignore
+.python-version
+.README.md
+uv.lock
+*__pycache__/
+MS-MARCO-DB
+*.safetensors
+DATASET
+*.csv
