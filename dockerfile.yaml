@@ -11,7 +11,7 @@ services:
 
   ui:
     build: .
-    command: python ui.py
+    command: python -m chainlit run ui.py
     volumes:
       - .:/llm
     ports:
