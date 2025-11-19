@@ -1,0 +1,18 @@
+version: "3.11"
+
+services:
+  app:
+    build: .
+    command: python app.py
+    volumes:
+      - .:/llm
+    ports:
+      - "8000:8000"
+
+  ui:
+    build: .
+    command: python ui.py
+    volumes:
+      - .:/llm
+    ports:
+      - "8001:8001"
