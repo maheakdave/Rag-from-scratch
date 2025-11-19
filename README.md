@@ -12,3 +12,5 @@ Future Works -
  - Use Triton inference server as the backend.
  - Improve upon the current RAG implementation by using other advanced techniques for scalability.
    
+
+To run the system, simply buid the docker containers, using the command - `docker compose up --build `
