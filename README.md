@@ -12,7 +12,9 @@ Future Works -
  - Use Triton inference server as the backend.
  - Write custom Triton kernels for efficient LLM inference.
  - Improve upon the current RAG implementation by using other advanced techniques for scalability.
-   
+ - Quantization
+ - Evaluation
 
 To run the system, simply build the docker containers, using the command - `docker compose up --build `
+
 
