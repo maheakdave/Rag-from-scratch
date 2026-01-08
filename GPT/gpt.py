@@ -117,7 +117,9 @@ class GPT2(torch.nn.Module):
         self.dropout = torch.nn.Dropout(cfg["drop_rate"])
         self.trf_blocks = torch.nn.Sequential(
             *[TransformerBlock(cfg) for _ in range(cfg["n_layers"])]
-        ) # (*[TransformerBlock(cfg)]*cfg["n_layers"]) causes same weight init accross all blocks.
+        ) # (*[TransformerBlock(cfg)]*cfg["n_layers"]) causes same weight init accross all blocks, 
+        # and changes all the blocks params with same value, because of same reference.
+        
         self.final_norm = torch.nn.LayerNorm(cfg["emb_dim"])
         self.out_head = torch.nn.Linear(cfg["emb_dim"],cfg["vocab_size"],bias=False)
         self.apply(self.init_weights)
@@ -382,4 +384,5 @@ if __name__ == "__main__":
     print(f"\n\n{50*'='}\n{22*' '}OUT\n{50*'='}")
     print("Output text:", decoded_text)
     print(f"\nTime: {total_time:.2f} sec")
+
     print(f"{int(len(token_ids[0])/total_time)} tokens/sec")
